@@ -22,7 +22,7 @@
         <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
             <form wire:submit="register">
                 <div class="space-y-4">
-                    <x-input label="Name" wire:model="name" autofocus inline icon="o-user" />
+                    <x-input label="Username" wire:model="username" autofocus inline icon="o-user" />
 
                     <x-input label="Email address" wire:model="email" inline icon="o-envelope" />
 
