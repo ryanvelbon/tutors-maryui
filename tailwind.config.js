@@ -23,9 +23,11 @@ module.exports = {
         './resources/**/*.php',
         './resources/**/*.vue',
         './resources/**/*.twig',
+        './vendor/robsontenorio/mary/src/View/Components/**/*.php',
     ],
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
+        require('daisyui'),
     ],
 }
