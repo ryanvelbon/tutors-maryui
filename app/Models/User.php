@@ -6,6 +6,7 @@ use App\Enums\AccountType;
 use App\Enums\UserTitle;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -41,6 +42,11 @@ class User extends Authenticatable
             'account_type' => AccountType::class,
             'title' => UserTitle::class,
         ];
+    }
+
+    public function subjects(): BelongsToMany
+    {
+        return $this->belongsToMany(Subject::class);
     }
 
     public function studentProfile(): HasOne
