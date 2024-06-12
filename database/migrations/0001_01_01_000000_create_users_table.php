@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamps();
 
             // profile columns
+            $table->string('account_type', 20)->nullable();
             $table->string('title', 10)->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();

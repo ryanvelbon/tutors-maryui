@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Enums\AccountType;
 use App\Enums\UserTitle;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -16,6 +18,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
+
+        'account_type',
         'title',
         'first_name',
         'last_name',
@@ -34,7 +38,28 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'account_type' => AccountType::class,
             'title' => UserTitle::class,
         ];
+    }
+
+    public function studentProfile(): HasOne
+    {
+        return $this->hasOne(Student::class);
+    }
+
+    public function tutorProfile(): HasOne
+    {
+        return $this->hasOne(Tutor::class);
+    }
+
+    public function scopeStudents($query)
+    {
+        return $query->where('account_type', AccountType::Student);
+    }
+
+    public function scopeTutors($query)
+    {
+        return $query->where('account_type', AccountType::Tutor);
     }
 }
