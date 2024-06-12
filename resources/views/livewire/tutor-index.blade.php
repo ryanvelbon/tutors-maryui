@@ -26,7 +26,7 @@
                                 <span>Barcelona</span>
                             </div>
                             <div class="flex flex-col items-end leading-tight">
-                                <span class="text-2xl font-bold">€8</span>
+                                <span class="text-2xl font-bold">€{{ $tutor->price_per_hour_individual }}</span>
                                 <span class="text-xs text-gray-600">per hour</span>
                             </div>
                         </div>

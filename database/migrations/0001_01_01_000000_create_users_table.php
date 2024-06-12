@@ -30,6 +30,10 @@ return new class extends Migration
             $table->char('sex', 1)->nullable();
             $table->text('bio')->nullable();
             $table->text('avatar')->nullable();
+
+            // tutor columns
+            $table->unsignedInteger('price_per_hour_individual')->nullable();
+            $table->unsignedInteger('price_per_hour_group')->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

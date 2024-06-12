@@ -27,6 +27,9 @@ class User extends Authenticatable
         'dob',
         'sex',
         'bio',
+
+        'price_per_hour_individual',
+        'price_per_hour_group',
     ];
 
     protected $hidden = [
