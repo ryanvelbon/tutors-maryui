@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tutor;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,5 +19,7 @@ class DatabaseSeeder extends Seeder
             SubjectSeeder::class,
             LevelSeeder::class,
         ]);
+
+        Tutor::factory(50)->create();
     }
 }
