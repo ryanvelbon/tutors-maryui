@@ -4,14 +4,24 @@ namespace App\Livewire;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithPagination;
 use Livewire\Attributes\Url;
 
 class TutorIndex extends Component
 {
+    use WithPagination;
+
     public bool $showFilters = false;
 
     #[Url (as: 'subject')]
     public $subjectId;
+
+    public function updated($property): void
+    {
+        if ($property !== 'showFilters') {
+            $this->resetPage();
+        }
+    }
 
     public function render()
     {
@@ -23,7 +33,7 @@ class TutorIndex extends Component
                     $query->where('subject_id', $this->subjectId);
                 });
             })
-            ->get();
+            ->paginate(12);
 
         return view('livewire.tutor-index', [
             'tutors' => $tutors,

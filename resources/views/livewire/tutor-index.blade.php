@@ -49,4 +49,10 @@
         </div>
     @endif
 
+    @if(!$tutors->isEmpty())
+        <div class="my-4">
+            {{ $tutors->links() }}
+        </div>
+    @endif
+
 </div>
