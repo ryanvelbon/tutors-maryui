@@ -18,24 +18,34 @@
     @if(!$tutors->isEmpty())
         <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($tutors as $tutor)
-                <div class="bg-gray-100 p-4 h-64 rounded-lg flex flex-col justify-between">
+                <div class="bg-gray-100 rounded-lg">
+                    <div class="p-4 h-96 flex flex-col">
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center gap-1">
+                                <x-icon name="o-map-pin" />
+                                <span>Barcelona</span>
+                            </div>
+                            <div class="flex flex-col items-end leading-tight">
+                                <span class="text-2xl font-bold">€8</span>
+                                <span class="text-xs text-gray-600">per hour</span>
+                            </div>
+                        </div>
 
-                    <div class="flex justify-between items-center">
-                        <h3 class="font-semibold">{{ $tutor->full_name }}</h3>
-                        <div>
-                            <x-button icon="o-envelope" class="btn-circle btn-sm" />
-                            <x-button icon="o-phone" class="btn-circle btn-sm" />
+                        <div class="grow flex flex-col items-center space-y-2">
+                            <img class="h-24 w-24 rounded-full bg-gray-800" src="{{ $tutor->avatar ?? '/assets/img/user.jpg' }}" alt="">
+                            <h2 class="text-gray-800 font-bold text-lg">{{ $tutor->full_name }}</h2>
+                            <p class="text-center text-sm text-gray-600">{{ $tutor->bio }}</p>
+                        </div>
+
+                        <div class="flex flex-wrap justify-center gap-1">
+                            @foreach($tutor->subjects as $subject)
+                                <span class="bg-gray-300 text-xs px-2 py-1 rounded">{{ $subject->title }}</span>
+                            @endforeach
                         </div>
                     </div>
-
-                    <div>
-                        <p class="text-sm text-gray-600">{{ $tutor->bio }}</p>
-                    </div>
-
-                    <div class="flex flex-wrap gap-1">
-                        @foreach($tutor->subjects as $subject)
-                            <span class="bg-gray-300 text-xs px-2 py-1 rounded">{{ $subject->title }}</span>
-                        @endforeach
+                    <div class="px-4 py-2 flex justify-center gap-2">
+                        <x-button icon="o-envelope" class="btn-circle btn-sm" />
+                        <x-button icon="o-phone" class="btn-circle btn-sm" />
                     </div>
                 </div>
             @endforeach
