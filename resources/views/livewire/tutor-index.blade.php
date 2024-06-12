@@ -5,8 +5,14 @@
 
     <h2 class="text-4xl font-gray-800 font-bold text-center">Tutors</h2>
 
-    <div class="my-6">
+    <div class="my-6 flex justify-between">
         <x-button label="Filters" icon="o-funnel" wire:click="$toggle('showFilters')" />
+
+        @php
+            $subjects = App\Models\Subject::all();
+        @endphp
+
+        <x-radio :options="$subjects" option-label="title" class="w-full" wire:model.live="subjectId" />
     </div>
 
     @if(!$tutors->isEmpty())

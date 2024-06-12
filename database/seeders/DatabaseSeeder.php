@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
 
         // assign random subjects to each tutor
         $tutors->map(function (Tutor $tutor) use ($subjectIds) {
-            $tutor->user->subjects()->sync($subjectIds->random(rand(1,4)));
+            $tutor->user->subjects()->sync($subjectIds->random(rand(1,2)));
         });
     }
 }
