@@ -7,9 +7,13 @@ use Livewire\Component;
 
 class TutorIndex extends Component
 {
+    public bool $showFilters = false;
+
     public function render()
     {
-        $tutors = User::tutors()->get();
+        $tutors = User::tutors()
+            ->with('subjects')
+            ->get();
 
         return view('livewire.tutor-index', [
             'tutors' => $tutors,
