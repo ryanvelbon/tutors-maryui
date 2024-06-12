@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('title', 10)->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
+            $table->string('full_name')->virtualAs('concat(first_name, \' \', last_name)');
             $table->date('dob')->nullable();
             $table->char('sex', 1)->nullable();
             $table->text('bio')->nullable();
