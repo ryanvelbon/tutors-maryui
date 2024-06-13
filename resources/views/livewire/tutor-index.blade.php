@@ -10,11 +10,7 @@
     <div class="my-6 flex justify-between">
         <x-button label="Filters" icon="o-funnel" wire:click="$toggle('showFilters')" />
 
-        @php
-            $subjects = App\Models\Subject::all();
-        @endphp
-
-        <x-radio :options="$subjects" option-label="title" class="w-full" wire:model.live="subjectId" />
+        <x-radio :options="$subjectOptions" option-label="title" class="w-full text-xs text-nowrap" wire:model.live="subjectId" />
     </div>
 
     @if(!$tutors->isEmpty())
