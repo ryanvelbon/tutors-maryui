@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Enums\UserSex;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -15,6 +16,9 @@ class TutorIndex extends Component
 
     #[Url (as: 'subject')]
     public $subjectId;
+
+    #[Url (as: 'gender')]
+    public ?string $sex = null;
 
     public function updated($property): void
     {
@@ -33,10 +37,17 @@ class TutorIndex extends Component
                     $query->where('subject_id', $this->subjectId);
                 });
             })
+            ->when($this->sex, function ($query) {
+                $query->where('sex', $this->sex);
+            })
             ->paginate(12);
+
+        $sexOptions = UserSex::cases();
+        $sexOptions[] = ['name' => 'Any', 'value' => null];
 
         return view('livewire.tutor-index', [
             'tutors' => $tutors,
+            'sexOptions' => $sexOptions,
         ]);
     }
 }
