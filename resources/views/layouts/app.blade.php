@@ -6,4 +6,6 @@
     @isset($slot)
         {{ $slot }}
     @endisset
+
+    <x-toast />
 @endsection

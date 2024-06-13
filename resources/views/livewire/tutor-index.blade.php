@@ -5,6 +5,8 @@
         </div>
 
         <div class="mt-4 space-y-6">
+            <x-button label="Reset" icon="o-x-mark" wire:click="clear" spinner />
+
             <x-radio label="Gender" :options="$sexOptions" option-value="value" class="w-full" wire:model.live="sex" />
 
             <x-select label="Subject" icon="o-academic-cap" :options="$subjectOptions" option-label="title" wire:model.live="subjectId" inline />

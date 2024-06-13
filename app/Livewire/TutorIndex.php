@@ -8,10 +8,12 @@ use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Livewire\Attributes\Url;
+use Mary\Traits\Toast;
 
 class TutorIndex extends Component
 {
     use WithPagination;
+    use Toast;
 
     public bool $showFilters = false;
 
@@ -26,6 +28,13 @@ class TutorIndex extends Component
         if ($property !== 'showFilters') {
             $this->resetPage();
         }
+    }
+
+    public function clear(): void
+    {
+        $this->reset();
+        $this->resetPage();
+        $this->success('Filters cleared.', position: 'toast-top');
     }
 
     public function render()
