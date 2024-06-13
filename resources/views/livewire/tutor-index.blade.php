@@ -1,8 +1,14 @@
 <div class="py-24 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <x-drawer wire:model="showFilters" class="w-11/12 lg:w-1/3">
-        <x-button label="Close" @click="$wire.showFilters = false" />
+        <div class="flex justify-end">
+            <x-button @click="$wire.showFilters = false" icon="o-x-mark" class="btn-circle btn-ghost -mr-4" />
+        </div>
 
-        <x-radio label="Gender" :options="$sexOptions" option-value="value" class="w-full" wire:model.live="sex" />
+        <div class="mt-4 space-y-6">
+            <x-radio label="Gender" :options="$sexOptions" option-value="value" class="w-full" wire:model.live="sex" />
+
+            <x-select label="Subject" icon="o-academic-cap" :options="$subjectOptions" option-label="title" wire:model.live="subjectId" inline />
+        </div>
     </x-drawer>
 
     <h2 class="text-4xl font-gray-800 font-bold text-center">Tutors</h2>
