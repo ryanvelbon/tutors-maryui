@@ -21,7 +21,17 @@
 </section>
 <section class="bg-base-200">
     <div class="container py-16">
-        <h2>Pick a Subject</h2>
+        <p class="text-center text-4xl font-bold text-base-content">What do you need help with?</p>
+        <ul class="flex gap-3 overflow-x-auto py-8 mx-auto max-w-2xl">
+            @foreach($subjects as $subject)
+                <a href="#">
+                    <li class="w-48 h-48 shrink-0 bg-white hover:bg-black hover:text-white transition duration-500 ease-in-out flex flex-col gap-4 items-center justify-center select-none">
+                        <x-icon name="o-academic-cap" class="w-12 h-12" />
+                        <h3 class="font-bold">{{ $subject->title }}</h3>
+                    </li>
+                </a>
+            @endforeach
+        </ul>
     </div>
 </section>
 <section class="bg-base-100">

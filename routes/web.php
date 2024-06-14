@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Livewire\TutorIndex;
@@ -12,7 +13,7 @@ use App\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
 
 
-Route::view('/', 'welcome')->name('home');
+Route::get('/', [PageController::class, 'home'])->name('home');
 
 Route::get('/tutors', TutorIndex::class)->name('tutors.index');
 
