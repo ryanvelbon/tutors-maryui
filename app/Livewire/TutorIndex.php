@@ -34,7 +34,7 @@ class TutorIndex extends Component
     {
         $this->reset();
         $this->resetPage();
-        $this->success('Filters cleared.', position: 'toast-top');
+        $this->success('Filters cleared.', position: 'toast-bottom');
     }
 
     public function render()

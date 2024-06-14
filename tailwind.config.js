@@ -1,6 +1,9 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+    daisyui: {
+        themes: ['light', 'dark', 'cupcake'],
+    },
     theme: {
         extend: {
             fontFamily: {

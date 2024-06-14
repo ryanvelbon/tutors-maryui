@@ -34,6 +34,10 @@
  * .form-input { ... }
  */
 
+.container {
+    @apply mx-auto max-w-7xl px-6 lg:px-8;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.
