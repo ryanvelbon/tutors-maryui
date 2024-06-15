@@ -4,6 +4,10 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Livewire\TutorIndex;
+use App\Livewire\Panel\EditProfile;
+use App\Livewire\Panel\Settings;
+use App\Livewire\Student\Dashboard as StudentDashboard;
+use App\Livewire\Tutor\Dashboard as TutorDashboard;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
 use App\Livewire\Auth\Passwords\Email;
@@ -47,11 +51,16 @@ Route::middleware('auth')->group(function () {
         ->name('logout');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::get('profile/edit', EditProfile::class)->name('account.profile');
+    Route::get('account/settings', Settings::class)->name('account.settings');
+});
+
 
 Route::middleware('account:student')->group(function () {
-    //
+    Route::get('student/dashboard', StudentDashboard::class)->name('student.dashboard');
 });
 
 Route::middleware('account:tutor')->group(function () {
-    //
+    Route::get('tutor/dashboard', TutorDashboard::class)->name('tutor.dashboard');
 });
