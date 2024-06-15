@@ -15,6 +15,7 @@ use App\Livewire\Auth\Passwords\Confirm;
 use App\Livewire\Auth\Passwords\Email;
 use App\Livewire\Auth\Passwords\Reset;
 use App\Livewire\Auth\Register;
+use App\Livewire\Auth\RegisterAs;
 use App\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
 
@@ -54,6 +55,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('register/account-type', RegisterAs::class)->name('account.type');
     Route::get('dashboard', [PageController::class, 'dashboard'])->name('dashboard');
     Route::get('lessons', [PageController::class, 'lessons'])->name('lessons');
     Route::get('profile/edit', EditProfile::class)->name('account.profile');
