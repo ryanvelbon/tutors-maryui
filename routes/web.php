@@ -7,7 +7,9 @@ use App\Livewire\TutorIndex;
 use App\Livewire\Panel\EditProfile;
 use App\Livewire\Panel\Settings;
 use App\Livewire\Student\Dashboard as StudentDashboard;
+use App\Livewire\Student\LessonIndex as StudentLessonIndex;
 use App\Livewire\Tutor\Dashboard as TutorDashboard;
+use App\Livewire\Tutor\LessonIndex as TutorLessonIndex;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
 use App\Livewire\Auth\Passwords\Email;
@@ -52,6 +54,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('dashboard', [PageController::class, 'dashboard'])->name('dashboard');
+    Route::get('lessons', [PageController::class, 'lessons'])->name('lessons');
     Route::get('profile/edit', EditProfile::class)->name('account.profile');
     Route::get('account/settings', Settings::class)->name('account.settings');
 });
@@ -59,8 +63,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('account:student')->group(function () {
     Route::get('student/dashboard', StudentDashboard::class)->name('student.dashboard');
+    Route::get('student/lessons', StudentLessonIndex::class)->name('student.lessons.index');
 });
 
 Route::middleware('account:tutor')->group(function () {
     Route::get('tutor/dashboard', TutorDashboard::class)->name('tutor.dashboard');
+    Route::get('tutor/lessons', TutorLessonIndex::class)->name('tutor.lessons.index');
 });

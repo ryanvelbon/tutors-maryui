@@ -38,14 +38,9 @@
                     <x-menu-separator />
                 @endif
 
-                @if($user->isStudent())
-                    <x-menu-item title="Dashboard" icon="o-home" :link="route('student.dashboard')" />
-                @elseif($user->isTutor())
-                    <x-menu-item title="Dashboard" icon="o-home" :link="route('tutor.dashboard')" />
-                    <x-menu-item title="Lessons" icon="o-calendar-days" link="#" />
-                    <x-menu-item title="Stats" icon="o-chart-bar-square" link="#" />
-                @endif
-
+                <x-menu-item title="Dashboard" icon="o-home" :link="route('dashboard')" />
+                <x-menu-item title="Lessons" icon="o-calendar-days" :link="route('lessons')" />
+                <x-menu-item title="Stats" icon="o-chart-bar-square" link="#" />
                 <x-menu-item title="Messages" icon="o-chat-bubble-bottom-center-text" link="#" />
 
                 <x-menu-sub title="Account" icon="o-user-circle">

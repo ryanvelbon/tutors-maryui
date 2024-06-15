@@ -4,7 +4,11 @@
             <a href="{{ route('home') }}">
                 <x-logo class="w-auto h-8 text-primary" />
             </a>
-            <x-button label="Become a Tutor" :link="route('register')" class="btn-ghost" />
+            @auth
+                <x-button label="Dashboard" :link="route('dashboard')" class="btn-ghost" />
+            @else
+                <x-button label="Become a Tutor" :link="route('register')" class="btn-ghost" />
+            @endauth
         </div>
         <div>
             @auth
