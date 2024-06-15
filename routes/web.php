@@ -46,3 +46,12 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', LogoutController::class)
         ->name('logout');
 });
+
+
+Route::middleware('account:student')->group(function () {
+    //
+});
+
+Route::middleware('account:tutor')->group(function () {
+    //
+});

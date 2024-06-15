@@ -73,4 +73,14 @@ class User extends Authenticatable
     {
         return $query->where('account_type', AccountType::Tutor);
     }
+
+    public function isStudent()
+    {
+        return $this->account_type === AccountType::Student;
+    }
+
+    public function isTutor()
+    {
+        return $this->account_type === AccountType::Tutor;
+    }
 }
