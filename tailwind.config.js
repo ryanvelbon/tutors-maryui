@@ -26,6 +26,7 @@ module.exports = {
         './resources/**/*.php',
         './resources/**/*.vue',
         './resources/**/*.twig',
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/robsontenorio/mary/src/View/Components/**/*.php',
     ],
     plugins: [
