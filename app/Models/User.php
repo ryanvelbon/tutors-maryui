@@ -46,6 +46,7 @@ class User extends Authenticatable
             'account_type' => AccountType::class,
             'sex' => UserSex::class,
             'title' => UserTitle::class,
+            'dob' => 'date',
         ];
     }
 
