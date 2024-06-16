@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Lesson;
 use App\Models\Subject;
 use App\Models\Tutor;
 use App\Models\User;
@@ -29,5 +30,7 @@ class DatabaseSeeder extends Seeder
         $tutors->map(function (Tutor $tutor) use ($subjectIds) {
             $tutor->user->subjects()->sync($subjectIds->random(rand(1,2)));
         });
+
+        $lessons = Lesson::factory(200)->create();
     }
 }
