@@ -8,4 +8,5 @@ enum UserTitle: string
     case Misses = 'Mrs.';
     case Miss = 'Miss';
     case Doctor = 'Dr.';
+    case Professor = 'Prof.';
 }
