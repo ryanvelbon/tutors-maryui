@@ -27,6 +27,7 @@ class LessonIndex extends Component
 
         $headers = [
             ['key' => 'title', 'label' => 'Title'],
+            ['key' => 'subject.title', 'label' => 'Subject'],
             ['key' => 'date', 'label' => 'Date'],
             ['key' => 'starts_at', 'label' => 'Starts'],
             ['key' => 'ends_at', 'label' => 'Ends'],
