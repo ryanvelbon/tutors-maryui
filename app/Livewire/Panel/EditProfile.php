@@ -32,11 +32,11 @@ class EditProfile extends Component
 
         $this->firstName = $user->first_name;
         $this->lastName = $user->last_name;
-        $this->sex = $user->sex->value;
-        $this->title = $user->title->value;
-        $this->dobD = $user->dob->day;
-        $this->dobM = $user->dob->month;
-        $this->dobY = $user->dob->year;
+        $this->sex = $user->sex?->value;
+        $this->title = $user->title?->value;
+        $this->dobD = $user->dob?->day;
+        $this->dobM = $user->dob?->month;
+        $this->dobY = $user->dob?->year;
 
         $this->sexOptions = array_map(function($case) {
             return [
