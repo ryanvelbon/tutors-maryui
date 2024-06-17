@@ -8,15 +8,17 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('tutors', function (Blueprint $table) {
+        Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->unique()->constrained()->onDelete('CASCADE');
+            $table->foreignId('school_id')->nullable()->constrained()->onDelete('SET NULL');
+            $table->foreignId('academic_year_id')->nullable()->constrained()->onDelete('SET NULL');
             $table->timestamps();
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('tutors');
+        Schema::dropIfExists('students');
     }
 };
