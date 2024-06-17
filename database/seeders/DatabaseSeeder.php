@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             SubjectSeeder::class,
             AcademicYearSeeder::class,
             LevelSeeder::class,
+            SchoolSeeder::class,
         ]);
 
         $subjectIds = Subject::pluck('id');
