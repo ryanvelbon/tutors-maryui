@@ -84,4 +84,14 @@ class User extends Authenticatable
     {
         return $this->account_type === AccountType::Tutor;
     }
+
+    public function getStudentIdAttribute()
+    {
+        return data_get($this->studentProfile, 'id');
+    }
+
+    public function getTutorIdAttribute()
+    {
+        return data_get($this->tutorProfile, 'id');
+    }
 }

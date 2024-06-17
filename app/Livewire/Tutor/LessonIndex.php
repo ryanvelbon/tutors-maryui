@@ -18,8 +18,10 @@ class LessonIndex extends Component
     #[Layout('layouts.panel')]
     public function render()
     {
+        $user = auth()->user();
+
         $lessons = Lesson::query()
-            ->where('tutor_id', auth()->id())
+            ->where('tutor_id', $user->tutorId)
             ->orderBy(...array_values($this->sortBy))
             ->paginate(10);
 
