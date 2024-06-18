@@ -23,15 +23,21 @@
                                 <img src="https://placehold.co/600x400" alt="" class="absolute inset-0 h-full w-full bg-gray-50 object-cover">
                             </div>
                             <div class="p-4 space-y-4">
-                                <div class="relative flex items-center gap-x-4">
-                                    <img src="/assets/img/user.jpg" alt="" class="h-12 w-12 rounded-full bg-gray-50">
-                                    <div class="text-sm leading-6">
-                                        <p class="font-semibold text-gray-900">
-                                            <span class="absolute inset-0"></span>
-                                            {{ $course->tutor->user->title }}
-                                            {{ $course->tutor->user->full_name }}
-                                        </p>
-                                        <p class="text-gray-600">Math Teacher at St. Thomas</p>
+
+                                <div class="flex justify-between">
+                                    <div class="relative flex items-center gap-x-4">
+                                        <img src="/assets/img/user.jpg" alt="" class="h-12 w-12 rounded-full bg-gray-50">
+                                        <div class="text-sm leading-6">
+                                            <p class="font-semibold text-gray-900">
+                                                <span class="absolute inset-0"></span>
+                                                {{ $course->tutor->user->title }}
+                                                {{ $course->tutor->user->full_name }}
+                                            </p>
+                                            <p class="text-gray-600">Math Teacher at St. Thomas</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="font-bold">&euro; {{ $course->price }}</div>
                                     </div>
                                 </div>
 
@@ -49,7 +55,7 @@
                                         <span class="text-gray-500 text-xs">(72 reviews)</span>
                                     </div>
                                     <div class="text-xs text-gray-500">
-                                        <span>20 hours</span>
+                                        <span>{{ $course->total_hours }} hours</span>
                                         &bull;
                                         <span>8 students</span>
                                         &bull;

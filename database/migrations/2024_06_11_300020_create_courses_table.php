@@ -15,6 +15,8 @@ return new class extends Migration
             $table->foreignId('subject_id');
             $table->foreignId('level_id');
             $table->foreignId('tutor_id');
+            $table->unsignedTinyInteger('total_hours');
+            $table->unsignedInteger('price');
             $table->timestamps();
             $table->softDeletes();
         });
