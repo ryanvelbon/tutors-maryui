@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('tutor_id');
             $table->unsignedTinyInteger('total_hours');
             $table->unsignedInteger('price');
+            $table->unsignedInteger('hourly_rate')->virtualAs('price / nullif(total_hours, 0)');
             $table->timestamps();
             $table->softDeletes();
         });

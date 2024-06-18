@@ -44,4 +44,11 @@ class Course extends Model
             set: fn ($value) => $value * 100,
         );
     }
+
+    public function hourlyRate(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value / 100,
+        );
+    }
 }

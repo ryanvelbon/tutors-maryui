@@ -38,6 +38,7 @@
                                     </div>
                                     <div class="text-right">
                                         <div class="font-bold">&euro; {{ $course->price }}</div>
+                                        <div class="text-gray-500 text-xs">&euro; {{ $course->hourly_rate }} per hour</div>
                                     </div>
                                 </div>
 
