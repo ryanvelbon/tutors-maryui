@@ -39,6 +39,11 @@
                 @endif
 
                 <x-menu-item title="Dashboard" icon="o-home" :link="route('dashboard')" />
+
+                @if($user->isTutor())
+                    <x-menu-item title="Courses" icon="o-square-2-stack" :link="route('tutor.courses.index')" />
+                @endif
+
                 <x-menu-item title="Lessons" icon="o-calendar-days" :link="route('lessons')" />
                 <x-menu-item title="Stats" icon="o-chart-bar-square" link="#" />
                 <x-menu-item title="Messages" icon="o-chat-bubble-bottom-center-text" link="#" />

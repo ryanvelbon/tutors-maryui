@@ -10,6 +10,7 @@ use App\Livewire\Panel\Settings;
 use App\Livewire\Student\Dashboard as StudentDashboard;
 use App\Livewire\Student\LessonIndex as StudentLessonIndex;
 use App\Livewire\Tutor\Dashboard as TutorDashboard;
+use App\Livewire\Tutor\CourseIndex as TutorCourseIndex;
 use App\Livewire\Tutor\LessonIndex as TutorLessonIndex;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
@@ -73,5 +74,6 @@ Route::middleware('account:student')->group(function () {
 
 Route::middleware('account:tutor')->group(function () {
     Route::get('tutor/dashboard', TutorDashboard::class)->name('tutor.dashboard');
+    Route::get('tutor/courses', TutorCourseIndex::class)->name('tutor.courses.index');
     Route::get('tutor/lessons', TutorLessonIndex::class)->name('tutor.lessons.index');
 });
