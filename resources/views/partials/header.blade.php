@@ -1,9 +1,11 @@
 <div class="bg-white px-4">
     <div class="h-16 mx-auto max-w-7xl flex justify-between items-center">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2">
             <a href="{{ route('home') }}">
                 <x-logo class="w-auto h-8 text-primary" />
             </a>
+            <x-button label="Tutors" :link="route('tutors.index')" class="btn-ghost" />
+            <x-button label="Courses" :link="route('courses.index')" class="btn-ghost" />
             @auth
                 <x-button label="Dashboard" :link="route('dashboard')" class="btn-ghost" />
             @else

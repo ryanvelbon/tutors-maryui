@@ -3,6 +3,7 @@
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Livewire\CourseIndex;
 use App\Livewire\TutorIndex;
 use App\Livewire\Panel\EditProfile;
 use App\Livewire\Panel\Settings;
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [PageController::class, 'home'])->name('home');
+
+Route::get('/courses', CourseIndex::class)->name('courses.index');
 
 Route::get('/tutors', TutorIndex::class)->name('tutors.index');
 
