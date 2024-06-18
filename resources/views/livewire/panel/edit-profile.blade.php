@@ -10,9 +10,9 @@
 
             <x-input wire:model="lastName" label="Last Name" inline />
 
-            <x-select wire:model="sex" label="Gender" :options="$sexOptions" placeholder="Choose an option" inline />
+            <x-select wire:model="sex" label="Gender" :options="$sexOptions" optionValue="value" placeholder="Choose an option" inline />
 
-            <x-select wire:model="title" label="Title" :options="$titleOptions" placeholder="Choose an option" inline />
+            <x-select wire:model="title" label="Title" :options="$titleOptions" optionValue="value" placeholder="Choose an option" inline />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">

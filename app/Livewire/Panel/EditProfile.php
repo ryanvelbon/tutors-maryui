@@ -38,19 +38,9 @@ class EditProfile extends Component
         $this->dobM = $user->dob?->month;
         $this->dobY = $user->dob?->year;
 
-        $this->sexOptions = array_map(function($case) {
-            return [
-                'id' => $case->value,
-                'name' => $case->name,
-            ];
-        }, UserSex::cases());
+        $this->sexOptions = UserSex::cases();
 
-        $this->titleOptions = array_map(function ($case) {
-            return [
-                'id' => $case->value,
-                'name' => $case->name,
-            ];
-        }, UserTitle::cases());
+        $this->titleOptions = UserTitle::cases();
     }
 
     public function save()
