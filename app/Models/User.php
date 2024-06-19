@@ -8,6 +8,7 @@ use App\Enums\UserTitle;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -48,6 +49,11 @@ class User extends Authenticatable
             'title' => UserTitle::class,
             'dob' => 'date',
         ];
+    }
+
+    public function courses(): HasManyThrough
+    {
+        return $this->HasManyThrough(Course::class, Tutor::class);
     }
 
     public function subjects(): BelongsToMany
