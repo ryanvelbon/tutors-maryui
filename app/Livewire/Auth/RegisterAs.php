@@ -35,9 +35,11 @@ class RegisterAs extends Component
         switch ($this->accountType) {
             case 'student':
                 $user->account_type = AccountType::Student;
+                $user->studentProfile()->create();
                 break;
             case 'tutor':
                 $user->account_type = AccountType::Tutor;
+                $user->tutorProfile()->create();
                 break;
         }
 
