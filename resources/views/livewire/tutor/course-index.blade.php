@@ -7,7 +7,7 @@
         </x-slot:middle>
         <x-slot:actions>
             <x-button icon="o-funnel" />
-            <x-button icon="o-plus" class="btn-primary" />
+            <x-button label="New course" icon="o-plus" class="btn-primary" :link="route('tutor.courses.create')" />
         </x-slot:actions>
     </x-header>
 

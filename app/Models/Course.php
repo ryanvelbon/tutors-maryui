@@ -17,6 +17,8 @@ class Course extends Model
         'title',
         'description',
         'subject_id',
+        'level_id',
+        'tutor_id',
         'course_id',
         'total_hours',
         'price',
