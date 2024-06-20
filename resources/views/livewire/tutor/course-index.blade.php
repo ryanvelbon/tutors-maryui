@@ -2,11 +2,7 @@
 
 <div>
     <x-header title="Courses" subtitle="A course is a structured series of lessons. You can offer the same course many times." separator>
-        <x-slot:middle class="!justify-end">
-            <x-input icon="o-bolt" placeholder="Search..." />
-        </x-slot:middle>
         <x-slot:actions>
-            <x-button icon="o-funnel" />
             <x-button label="New course" icon="o-plus" class="btn-primary" :link="route('tutor.courses.create')" />
         </x-slot:actions>
     </x-header>
@@ -16,7 +12,7 @@
             no courses
         </div>
     @else
-        <x-table :headers="$headers" :rows="$courses" :sort-by="$sortBy" with-pagination striped>
+        <x-table :headers="$headers" :rows="$courses" striped>
 
             @scope('cell_total_hours', $course)
                 <span>{{ $course->total_hours }}</span>
