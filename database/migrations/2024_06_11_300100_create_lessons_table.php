@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tutor_id')->constrained();
             $table->foreignId('subject_id')->constrained();
+            $table->foreignId('course_offering_id')->nullable()->constrained();
             $table->unsignedTinyInteger('capacity')->default(1);
             $table->string('title');
             $table->text('description');

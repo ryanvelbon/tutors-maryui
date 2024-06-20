@@ -21,6 +21,11 @@ class Tutor extends Model
         return $this->hasMany(Course::class);
     }
 
+    public function courseOfferings()
+    {
+        return $this->HasMany(CourseOffering::class);
+    }
+
     public function lessons(): HasMany
     {
         return $this->hasMany(Lesson::class);

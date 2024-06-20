@@ -37,4 +37,9 @@ class Lesson extends Model
     {
         return $this->belongsTo(Tutor::class);
     }
+
+    public function courseOffering(): BelongsTo | null
+    {
+        return $this->belongsTo(CourseOffering::class);
+    }
 }
