@@ -114,13 +114,13 @@
                             <button type="button" wire:click="previousStep" class="btn">Previous</button>
                         @endif
                     </div>
-                    <button type="submit" class="btn btn-primary">
+                    <x-button type="submit" class="btn-primary" spinner="nextStep">
                         @if($step === $totalSteps)
                             Finish
                         @else
                             Next
                         @endif
-                    </button>
+                    </x-button>
                 </div>
             @endif
         </div>
