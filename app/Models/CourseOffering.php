@@ -5,24 +5,30 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Course extends Model
+class CourseOffering extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
-
     protected $fillable = [
         'title',
         'description',
         'subject_id',
         'level_id',
         'tutor_id',
+        'course_id',
         'total_hours',
+        'capacity',
         'price',
+        'start_date',
+        'status',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'start_date' => 'date',
+        ];
+    }
 
     public function subject(): BelongsTo
     {
@@ -39,9 +45,9 @@ class Course extends Model
         return $this->belongsTo(Tutor::class);
     }
 
-    public function offerings(): HasMany
+    public function course(): BelongsTo
     {
-        return $this->hasMany(CourseOffering::class);
+        return $this->belongsTo(Course::class);
     }
 
     public function price(): Attribute
