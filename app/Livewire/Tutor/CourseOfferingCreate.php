@@ -3,11 +3,15 @@
 namespace App\Livewire\Tutor;
 
 use App\Models\Course;
+use App\Models\CourseOffering;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Mary\Traits\Toast;
 
 class CourseOfferingCreate extends Component
 {
+    use Toast;
+
     public $step = 1;
     public $totalSteps = 6;
 
@@ -64,7 +68,17 @@ class CourseOfferingCreate extends Component
 
     private function save()
     {
-        dd("Saving data!");
+        $data = Course::find($this->courseId)->only('title', 'description', 'subject_id', 'level_id', 'tutor_id');
+
+        $data['course_id'] = $this->courseId;
+        $data['total_hours'] = $this->totalHours;
+        $data['capacity'] = $this->capacity;
+        $data['price'] = $this->price;
+        $data['start_date'] = $this->startDate;
+
+        CourseOffering::create($data);
+
+        $this->success('Course Offering created.', redirectTo: route('tutor.courseOfferings.index'));
     }
 
     #[Layout('layouts.empty')]
