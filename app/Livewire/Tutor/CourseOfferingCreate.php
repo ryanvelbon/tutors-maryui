@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Tutor;
 
+use App\Enums\CourseOfferingStatus;
 use App\Models\Course;
 use App\Models\CourseOffering;
 use Livewire\Attributes\Layout;
@@ -75,6 +76,7 @@ class CourseOfferingCreate extends Component
         $data['capacity'] = $this->capacity;
         $data['price'] = $this->price;
         $data['start_date'] = $this->startDate;
+        $data['status'] = CourseOfferingStatus::Scheduled;
 
         CourseOffering::create($data);
 
