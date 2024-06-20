@@ -9,6 +9,11 @@ module.exports = {
             fontFamily: {
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
+            spacing: {
+                '128': '32rem',
+                '144': '36rem',
+                '160': '40rem',
+            },
         },
     },
     variants: {

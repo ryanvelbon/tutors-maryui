@@ -42,6 +42,7 @@
 
                 @if($user->isTutor())
                     <x-menu-item title="Courses" icon="o-square-2-stack" :link="route('tutor.courses.index')" />
+                    <x-menu-item title="Cohorts" icon="o-user-group" :link="route('tutor.courseOfferings.index')" />
                 @endif
 
                 <x-menu-item title="Lessons" icon="o-calendar-days" :link="route('lessons')" />

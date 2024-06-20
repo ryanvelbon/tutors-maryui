@@ -12,6 +12,8 @@ use App\Livewire\Student\LessonIndex as StudentLessonIndex;
 use App\Livewire\Tutor\Dashboard as TutorDashboard;
 use App\Livewire\Tutor\CourseCreate as TutorCourseCreate;
 use App\Livewire\Tutor\CourseIndex as TutorCourseIndex;
+use App\Livewire\Tutor\CourseOfferingCreate as TutorCourseOfferingCreate;
+use App\Livewire\Tutor\CourseOfferingIndex as TutorCourseOfferingIndex;
 use App\Livewire\Tutor\LessonIndex as TutorLessonIndex;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Passwords\Confirm;
@@ -78,6 +80,9 @@ Route::middleware('account:tutor')->group(function () {
 
     Route::get('tutor/courses', TutorCourseIndex::class)->name('tutor.courses.index');
     Route::get('tutor/courses/create', TutorCourseCreate::class)->name('tutor.courses.create');
+
+    Route::get('tutor/course-offerings', TutorCourseOfferingIndex::class)->name('tutor.courseOfferings.index');
+    Route::get('tutor/course-offerings/create', TutorCourseOfferingCreate::class)->name('tutor.courseOfferings.create');
 
     Route::get('tutor/lessons', TutorLessonIndex::class)->name('tutor.lessons.index');
 });
