@@ -21,7 +21,7 @@
         {{-- Form body --}}
         <div>
             @if($step == 1)
-                @if($courses)
+                @if($courses->isNotEmpty())
                     <h2 class="text-2xl font-bold text-center">Which course would you like to offer?</h2>
                     <div x-data="{ selectedOption: '' }" class="mx-auto max-w-lg">
                         @foreach($courses as $course)
