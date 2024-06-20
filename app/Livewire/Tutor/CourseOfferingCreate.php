@@ -55,6 +55,13 @@ class CourseOfferingCreate extends Component
         }
     }
 
+    public function previousStep()
+    {
+        if ($this->step > 2) {
+            $this->step = $this->step - 1;
+        }
+    }
+
     private function save()
     {
         dd("Saving data!");

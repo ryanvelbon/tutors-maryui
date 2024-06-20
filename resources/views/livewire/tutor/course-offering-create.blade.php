@@ -2,12 +2,16 @@
 
 <div class="px-4">
     
-    <x-button
-        label="Go back"
-        icon="o-chevron-left"
-        :link="route('tutor.courseOfferings.index')"
-        class="btn-ghost mb-6 mt-4"
-    />
+    @if($step < 2)
+        <x-button
+            label="Go back"
+            icon="o-chevron-left"
+            :link="route('tutor.courseOfferings.index')"
+            class="btn-ghost mb-6 mt-4"
+        />
+    @else
+        <div class="h-24"></div>
+    @endif
 
     <form wire:submit="nextStep" class="min-h-128 mx-auto max-w-4xl flex flex-col items-center justify-between">
 
@@ -103,7 +107,13 @@
         {{-- Form footer --}}
         <div class="w-full py-4">
             @if($step > 1)
-                <div class="text-right">
+                <div class="flex justify-between">
+                    <div>
+                        <x-button label="Cancel" class="btn-error" :link="route('tutor.courseOfferings.index')" />
+                        @if($step > 2)
+                            <button type="button" wire:click="previousStep" class="btn">Previous</button>
+                        @endif
+                    </div>
                     <button type="submit" class="btn btn-primary">
                         @if($step === $totalSteps)
                             Finish
