@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\LessonStatus;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -52,6 +53,13 @@ class Lesson extends Model
     public function scopePast($query)
     {
         return $query->where('ends_at', '<', now());
+    }
+
+    public function scopeThisWeek($query)
+    {
+        return $query
+            ->where('starts_at', '>=', Carbon::now()->startOfWeek())
+            ->where('starts_at', '<=', Carbon::now()->endOfWeek());
     }
 
     public function scopeScheduled($query)
