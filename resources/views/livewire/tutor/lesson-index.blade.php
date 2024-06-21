@@ -11,19 +11,19 @@
         </div>
     @else
         <x-table :headers="$headers" :rows="$lessons" :sort-by="$sortBy" with-pagination wire:model="expanded" expandable>
-            @scope('cell_date', $lesson)
+            @scope('cell_starts_at', $lesson)
                 <span class="font-mono">
                     {{ $lesson->starts_at->format('D jS M') }}
                 </span>
             @endscope
 
-            @scope('cell_starts_at', $lesson)
+            @scope('cell_start_time', $lesson)
                 <span class="font-mono">
                     {{ $lesson->starts_at->format('H:i') }}
                 </span>
             @endscope
 
-            @scope('cell_ends_at', $lesson)
+            @scope('cell_end_time', $lesson)
                 <span class="font-mono">
                     {{ $lesson->ends_at->format('H:i') }}
                 </span>

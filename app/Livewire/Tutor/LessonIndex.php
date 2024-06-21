@@ -28,9 +28,9 @@ class LessonIndex extends Component
         $headers = [
             ['key' => 'title', 'label' => 'Title'],
             ['key' => 'subject.title', 'label' => 'Subject'],
-            ['key' => 'date', 'label' => 'Date'],
-            ['key' => 'starts_at', 'label' => 'Starts'],
-            ['key' => 'ends_at', 'label' => 'Ends'],
+            ['key' => 'starts_at', 'label' => 'Date'],
+            ['key' => 'start_time', 'label' => 'Starts', 'sortable' => false],
+            ['key' => 'end_time', 'label' => 'Ends', 'sortable' => false],
         ];
 
         return view('livewire.tutor.lesson-index', [
