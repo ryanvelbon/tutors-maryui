@@ -21,6 +21,7 @@ class LessonIndex extends Component
         $user = auth()->user();
 
         $lessons = Lesson::query()
+            ->with('subject', 'courseOffering.level')
             ->where('tutor_id', $user->tutorId)
             ->orderBy(...array_values($this->sortBy))
             ->paginate(10);

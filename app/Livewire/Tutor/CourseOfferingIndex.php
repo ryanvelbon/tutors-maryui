@@ -21,6 +21,7 @@ class CourseOfferingIndex extends Component
         $user = auth()->user();
 
         $offerings = CourseOffering::query()
+            ->with('subject', 'level')
             ->where('tutor_id', $user->tutorId)
             ->orderBy(...array_values($this->sortBy))
             ->paginate(10);
