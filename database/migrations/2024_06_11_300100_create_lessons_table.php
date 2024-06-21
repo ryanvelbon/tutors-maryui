@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\LessonStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->datetime('starts_at');
             $table->datetime('ends_at');
+            $table->string('status')->default(LessonStatus::Scheduled);
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\CourseOfferingStatus;
+use App\Enums\LessonStatus;
 use App\Models\Course;
 use App\Models\CourseOffering;
 use App\Models\Lesson;
@@ -112,6 +113,8 @@ class DatabaseSeeder extends Seeder
             }
         }
 
+        Lesson::past()->update(['status' => LessonStatus::Completed]);
+        Lesson::past()->inRandomOrder()->take(50)->update(['status' => LessonStatus::Cancelled]);
 
 
         /*                   S T U D E N T S

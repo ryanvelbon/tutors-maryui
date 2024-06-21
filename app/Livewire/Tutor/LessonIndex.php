@@ -26,11 +26,12 @@ class LessonIndex extends Component
             ->paginate(10);
 
         $headers = [
-            ['key' => 'title', 'label' => 'Title'],
-            ['key' => 'subject.title', 'label' => 'Subject'],
             ['key' => 'starts_at', 'label' => 'Date'],
             ['key' => 'start_time', 'label' => 'Starts', 'sortable' => false],
             ['key' => 'end_time', 'label' => 'Ends', 'sortable' => false],
+            ['key' => 'status', 'label' => 'Status'],
+            ['key' => 'subject.title', 'label' => 'Subject'],
+            ['key' => 'title', 'label' => 'Title'],
         ];
 
         return view('livewire.tutor.lesson-index', [
