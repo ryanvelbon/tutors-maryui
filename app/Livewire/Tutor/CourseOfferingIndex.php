@@ -31,7 +31,7 @@ class CourseOfferingIndex extends Component
             ['key' => 'status', 'label' => 'Status'],
             ['key' => 'start_date', 'label' => 'Starts'],
             ['key' => 'subject.title', 'label' => 'Subject', 'sortable' => false],
-            ['key' => 'level.title', 'label' => 'Level', 'sortable' => false],
+            ['key' => 'level.code', 'label' => 'Level', 'sortable' => false],
             ['key' => 'total_hours', 'label' => 'Length', 'class' => 'text-center'],
             ['key' => 'price', 'label' => 'Price', 'class' => 'text-center'],
             ['key' => 'capacity', 'label' => 'Seats'],
