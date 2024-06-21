@@ -27,4 +27,14 @@ class Level extends Model
     {
         return $this->hasMany(Course::class);
     }
+
+    public function courseOffering(): HasMany
+    {
+        return $this->hasMany(CourseOffering::class);
+    }
+
+    public function lessons(): HasMany
+    {
+        return $this->hasMany(Lesson::class);
+    }
 }
