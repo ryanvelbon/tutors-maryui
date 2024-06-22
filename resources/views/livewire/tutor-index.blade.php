@@ -29,7 +29,7 @@
                         <div class="flex justify-between items-center">
                             <div class="flex items-center gap-1">
                                 <x-icon name="o-map-pin" />
-                                <span>Barcelona</span>
+                                <span>{{ $tutor->locality->name }}</span>
                             </div>
                             <div class="flex flex-col items-end leading-tight">
                                 <span class="text-2xl font-bold">€{{ $tutor->price_per_hour_individual }}</span>

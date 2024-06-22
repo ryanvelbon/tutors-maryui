@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
@@ -30,6 +27,7 @@ return new class extends Migration
             $table->char('sex', 1)->nullable();
             $table->text('bio')->nullable();
             $table->text('avatar')->nullable();
+            $table->foreignId('locality_id')->nullable()->constrained();
 
             // tutor columns
             $table->unsignedInteger('price_per_hour_individual')->nullable();
@@ -52,9 +50,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');

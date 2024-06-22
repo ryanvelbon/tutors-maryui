@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Locality;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -26,6 +27,7 @@ class UserFactory extends Factory
             'dob' => fake()->dateTimeBetween('-65 years', '-18 years')->format('Y-m-d'),
             'sex' => fake()->randomElement(['m', 'f']),
             'bio' => fake()->paragraph(),
+            'locality_id' => Locality::inRandomOrder()->first(),
         ];
     }
 

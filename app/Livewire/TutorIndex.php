@@ -41,7 +41,7 @@ class TutorIndex extends Component
     {
         $tutors = User::query()
             ->tutors()
-            ->with('subjects')
+            ->with('subjects', 'locality')
             ->when($this->subjectId, function ($query) {
                 $query->whereHas('subjects', function ($query) {
                     $query->where('subject_id', $this->subjectId);
