@@ -16,6 +16,12 @@
         </div>
     @else
         <x-table :headers="$headers" :rows="$offerings" :sort-by="$sortBy" with-pagination striped wire:model="expanded" expandable>
+            @scope('cell_status', $offering)
+                <span class="bg-{{ $offering->status->getColor() }} px-2 py-1 text-white rounded-full text-xs">
+                    {{ $offering->status }}
+                </span>
+            @endscope
+
             @scope('cell_start_date', $offering)
                 <span class="font-mono">
                     {{ $offering->start_date->format('Y M d') }}

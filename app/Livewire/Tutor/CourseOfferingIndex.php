@@ -29,7 +29,7 @@ class CourseOfferingIndex extends Component
         $headers = [
             ['key' => 'id', 'label' => '#'],
             ['key' => 'title', 'label' => 'Title'],
-            ['key' => 'status', 'label' => 'Status'],
+            ['key' => 'status', 'label' => 'Status', 'class' => 'text-center'],
             ['key' => 'start_date', 'label' => 'Starts'],
             ['key' => 'subject.title', 'label' => 'Subject', 'sortable' => false],
             ['key' => 'level.code', 'label' => 'Level', 'sortable' => false],

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\CourseOfferingStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -24,12 +25,10 @@ class CourseOffering extends Model
         'status',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'start_date' => 'date',
-        ];
-    }
+    protected $casts = [
+        'start_date' => 'date',
+        'status' => CourseOfferingStatus::class,
+    ];
 
     public function subject(): BelongsTo
     {
