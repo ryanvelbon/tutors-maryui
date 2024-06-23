@@ -63,7 +63,7 @@ class TutorIndex extends Component
         $subjectOptions = Subject::all();
         $subjectOptions->prepend(['title' => 'All Subjects', 'id' => null]);
 
-        $levelOptions = Level::all();
+        $levelOptions = $this->subjectId ? Subject::find($this->subjectId)->levels : collect([]);
         $levelOptions->prepend(['title' => 'Any Level', 'id' => null]);
 
         $localityOptions = Locality::all();
