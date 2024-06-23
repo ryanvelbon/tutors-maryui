@@ -1,4 +1,4 @@
-<div class="py-24 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <x-drawer wire:model="showFilters" class="w-11/12 lg:w-1/3">
         <div class="flex justify-end">
             <x-button @click="$wire.showFilters = false" icon="o-x-mark" class="btn-circle btn-ghost -mr-4" />
@@ -16,12 +16,25 @@
         </div>
     </x-drawer>
 
-    <h2 class="text-4xl font-gray-800 font-bold text-center">Tutors</h2>
+    <div class="py-4">
+        <h1 class="text-2xl font-bold">Find a tutor near you</h1>
+    </div>
+
+    @include('partials.filters')
 
     <div class="my-6 flex justify-between">
-        <x-button label="Filters" icon="o-funnel" wire:click="$toggle('showFilters')" />
-
-        <x-radio :options="$subjectOptions" option-label="title" class="w-full text-xs text-nowrap" wire:model.live="subjectId" />
+        <div>
+            <x-button label="Filters" icon="o-funnel" wire:click="$toggle('showFilters')" />
+        </div>
+        <div>
+            <x-dropdown label="Sort by">
+                <x-menu-item title="Our top picks" />
+                <x-menu-item title="Popularity" />
+                <x-menu-item title="Price: highest first" />
+                <x-menu-item title="Price: lowest first" />
+                <x-menu-item title="Best rating" />
+            </x-dropdown>
+        </div>
     </div>
 
     @if(!$tutors->isEmpty())

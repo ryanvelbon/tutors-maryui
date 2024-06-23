@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Enums\UserSex;
+use App\Models\Level;
 use App\Models\Locality;
 use App\Models\Subject;
 use App\Models\User;
@@ -62,7 +63,11 @@ class TutorIndex extends Component
         $subjectOptions = Subject::all();
         $subjectOptions->prepend(['title' => 'All Subjects', 'id' => null]);
 
+        $levelOptions = Level::all();
+        $levelOptions->prepend(['title' => 'Any Level', 'id' => null]);
+
         $localityOptions = Locality::all();
+        $localityOptions->prepend(['name' => 'Anywhere', 'id' => null]);
 
         $sexOptions = UserSex::cases();
         $sexOptions[] = ['name' => 'Any', 'value' => null];
@@ -70,6 +75,7 @@ class TutorIndex extends Component
         return view('livewire.tutor-index', [
             'tutors' => $tutors,
             'subjectOptions' => $subjectOptions,
+            'levelOptions' => $levelOptions,
             'localityOptions' => $localityOptions,
             'sexOptions' => $sexOptions,
         ]);
