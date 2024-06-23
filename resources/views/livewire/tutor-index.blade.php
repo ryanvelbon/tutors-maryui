@@ -10,6 +10,9 @@
             <x-radio label="Gender" :options="$sexOptions" option-value="value" class="w-full" wire:model.live="sex" />
 
             <x-select label="Subject" icon="o-academic-cap" :options="$subjectOptions" option-label="title" wire:model.live="subjectId" inline />
+
+            <x-choices label="Localities" wire:model.live="localityIds" :options="$localityOptions" />
+
         </div>
     </x-drawer>
 

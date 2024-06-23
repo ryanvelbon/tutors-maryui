@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Enums\UserSex;
+use App\Models\Locality;
 use App\Models\Subject;
 use App\Models\User;
 use Livewire\Component;
@@ -19,6 +20,9 @@ class TutorIndex extends Component
 
     #[Url (as: 'subject')]
     public $subjectId;
+
+    #[Url (as: 'localities')]
+    public $localityIds = [];
 
     #[Url (as: 'gender')]
     public ?string $sex = null;
@@ -47,6 +51,9 @@ class TutorIndex extends Component
                     $query->where('subject_id', $this->subjectId);
                 });
             })
+            ->when($this->localityIds, function ($query) {
+                $query->whereIn('locality_id', $this->localityIds);
+            })
             ->when($this->sex, function ($query) {
                 $query->where('sex', $this->sex);
             })
@@ -55,12 +62,15 @@ class TutorIndex extends Component
         $subjectOptions = Subject::all();
         $subjectOptions->prepend(['title' => 'All Subjects', 'id' => null]);
 
+        $localityOptions = Locality::all();
+
         $sexOptions = UserSex::cases();
         $sexOptions[] = ['name' => 'Any', 'value' => null];
 
         return view('livewire.tutor-index', [
             'tutors' => $tutors,
             'subjectOptions' => $subjectOptions,
+            'localityOptions' => $localityOptions,
             'sexOptions' => $sexOptions,
         ]);
     }
