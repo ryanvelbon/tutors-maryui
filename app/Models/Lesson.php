@@ -22,13 +22,11 @@ class Lesson extends Model
         'tutor_id',
     ];
 
-    protected function casts(): array
-    {
-        return [
-            'starts_at' => 'datetime',
-            'ends_at' => 'datetime',
-        ];
-    }
+    protected $casts = [
+        'starts_at' => 'datetime',
+        'ends_at' => 'datetime',
+        'status' => LessonStatus::class,
+    ];
 
     public function subject(): BelongsTo
     {

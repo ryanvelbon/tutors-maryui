@@ -29,7 +29,9 @@
                                     {{ $lesson->subject->title }} {{ $lesson->courseOffering->level->code }}
                                 </td>
                                 <td>
-                                    {{ $lesson->status }}
+                                    <span class="bg-{{ $lesson->status->getColor() }} px-2 py-1 text-white rounded-full text-xs">
+                                        {{ $lesson->status }}
+                                    </span>
                                 </td>
                             </tr>
                         @endforeach

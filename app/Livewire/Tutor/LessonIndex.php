@@ -30,7 +30,7 @@ class LessonIndex extends Component
             ['key' => 'starts_at', 'label' => 'Date'],
             ['key' => 'start_time', 'label' => 'Starts', 'sortable' => false],
             ['key' => 'end_time', 'label' => 'Ends', 'sortable' => false],
-            ['key' => 'status', 'label' => 'Status'],
+            ['key' => 'status', 'label' => 'Status', 'class' => 'text-center'],
             ['key' => 'subject.title', 'label' => 'Subject', 'sortable' => false],
             ['key' => 'courseOffering.level.code', 'label' => 'Level', 'sortable' => false],
             ['key' => 'title', 'label' => 'Title'],

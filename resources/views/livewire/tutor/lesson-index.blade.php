@@ -29,6 +29,12 @@
                 </span>
             @endscope
 
+            @scope('cell_status', $lesson)
+                <span class="bg-{{ $lesson->status->getColor() }} px-2 py-1 text-white rounded-full text-xs">
+                    {{ $lesson->status }}
+                </span>
+            @endscope
+
             @scope('actions', $lesson)
                 <x-button icon="o-pencil-square" spinner class="btn-sm" />
             @endscope
