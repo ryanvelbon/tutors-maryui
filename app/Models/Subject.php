@@ -13,6 +13,11 @@ class Subject extends Model
         'slug',
     ];
 
+    public function levels(): BelongsToMany
+    {
+        return $this->belongsToMany(Level::class);
+    }
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
