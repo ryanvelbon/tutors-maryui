@@ -1,4 +1,4 @@
-<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="container">
     <x-drawer wire:model="showFilters" class="w-11/12 lg:w-1/3">
         <div class="flex justify-end">
             <x-button @click="$wire.showFilters = false" icon="o-x-mark" class="btn-circle btn-ghost -mr-4" />
@@ -38,7 +38,7 @@
     </div>
 
     @if(!$tutors->isEmpty())
-        <ul role="list" class="space-y-12 max-w-3xl">
+        <ul role="list" class="space-y-12 max-w-4xl">
             @foreach($tutors as $tutor)
                 <li class="bg-white rounded-2xl shadow hover:shadow-xl flex flex-col sm:flex-row">
                     <img class="aspect-[16/9] w-full sm:w-52 flex-none rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none  object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">

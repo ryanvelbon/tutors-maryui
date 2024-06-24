@@ -1,5 +1,5 @@
-<div class="bg-white px-4">
-    <div class="h-16 mx-auto max-w-7xl flex justify-between items-center">
+<div class="bg-white">
+    <div class="container h-16 flex justify-between items-center">
         <div class="flex items-center gap-2">
             <a href="{{ route('home') }}">
                 <x-logo class="w-auto h-8 text-primary" />
