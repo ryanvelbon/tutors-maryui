@@ -6,7 +6,7 @@
     {{-- NAVBAR mobile only --}}
     <x-nav sticky class="lg:hidden">
         <x-slot:brand>
-            <div class="ml-5 pt-5">App</div>
+            <a href="{{ route('home') }}">App</a>
         </x-slot:brand>
         <x-slot:actions>
             <label for="main-drawer" class="lg:hidden mr-3">
@@ -19,7 +19,9 @@
     <x-main full-width>
         <x-slot:sidebar drawer="main-drawer" collapsible class="bg-base-100 lg:bg-inherit">
 
-            <div class="ml-5 pt-5">App</div>
+            <div class="ml-5 pt-5">
+                <a href="{{ route('home') }}">App</a>
+            </div>
 
             <x-menu activate-by-route>
 

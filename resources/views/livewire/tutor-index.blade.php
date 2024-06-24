@@ -26,7 +26,7 @@
         x-data="{ scrolled: false }"
         @scroll.window="scrolled = window.scrollY > 100"
         :class="scrolled ? 'shadow-xl top-0' : ''"
-        class="fixed z-40 w-full bg-white py-4 transition-colors duration-1000"
+        class="fixed z-20 w-full bg-white py-4 transition-colors duration-1000"
     >
         <div class="container">
             @include('partials.filters')
