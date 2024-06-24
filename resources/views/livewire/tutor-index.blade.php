@@ -16,13 +16,18 @@
         </div>
     </x-drawer>
 
-    <div class="container">
-        <div class="py-4">
-            <h1 class="text-2xl font-bold">Find a tutor near you</h1>
+    <div class="bg-white">
+        <div class="container">
+            <h1 class="py-4 text-2xl font-bold">Find a tutor near you</h1>
         </div>
     </div>
 
-    <aside class="bg-blue-200 py-4">
+    <aside
+        x-data="{ scrolled: false }"
+        @scroll.window="scrolled = window.scrollY > 100"
+        :class="scrolled ? 'shadow-xl top-0' : ''"
+        class="fixed z-40 w-full bg-white py-4 transition-colors duration-1000"
+    >
         <div class="container">
             @include('partials.filters')
             <div class="mt-4 flex justify-between">
@@ -42,7 +47,7 @@
         </div>
     </aside>
 
-    <main class="container py-8">
+    <main class="container pt-32 md:pt-48 pb-8">
         @if(!$tutors->isEmpty())
             <ul role="list" class="space-y-12 max-w-4xl">
                 @foreach($tutors as $tutor)
