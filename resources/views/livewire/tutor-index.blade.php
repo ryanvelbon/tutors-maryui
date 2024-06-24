@@ -38,38 +38,38 @@
     </div>
 
     @if(!$tutors->isEmpty())
-        <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <ul role="list" class="space-y-12 max-w-3xl">
             @foreach($tutors as $tutor)
-                <div class="bg-gray-100 rounded-lg">
-                    <div class="p-4 h-96 flex flex-col">
-                        <div class="flex justify-between items-center">
-                            <div class="flex items-center gap-1">
-                                <x-icon name="o-map-pin" />
-                                <span>{{ $tutor->locality->name }}</span>
+                <li class="bg-white rounded-2xl shadow hover:shadow-xl flex flex-col sm:flex-row">
+                    <img class="aspect-[16/9] w-full sm:w-52 flex-none rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none  object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
+                    <div class="card-body">
+                        <div class="flex flex-col sm:flex-row justify-between">
+                            <div>
+                                <h3 class="text-xl font-bold">Leslie Alexander</h3>
+                                <p class="text-sm leading-7 text-gray-600">Maths &bull; Physics</p>
+                                <x-icon name="o-map-pin" label="{{ $tutor->locality->name }}" class="text-sm text-gray-600" />
                             </div>
-                            <div class="flex flex-col items-end leading-tight">
-                                <span class="text-2xl font-bold">€{{ $tutor->price_per_hour_individual }}</span>
-                                <span class="text-xs text-gray-600">per hour</span>
+                            <div class="flex flex-row gap-6">
+                                <div class="flex flex-col">
+                                    <x-icon name="s-star" label="4.8" class="h-5 text-xl font-bold" />
+                                    <span class="text-gray-600 text-xs">21 reviews</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="h-5 text-xl font-bold">&euro;14</span>
+                                    <span class="text-gray-600 text-xs mt-2">per hour</span>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="grow flex flex-col items-center space-y-2">
-                            <img class="h-24 w-24 rounded-full bg-gray-800" src="{{ $tutor->avatar ?? '/assets/img/user.jpg' }}" alt="">
-                            <h2 class="text-gray-800 font-bold text-lg">{{ $tutor->full_name }}</h2>
-                            <p class="text-center text-sm text-gray-600">{{ $tutor->bio }}</p>
-                        </div>
-
-                        <div class="flex flex-wrap justify-center gap-1">
-                            @foreach($tutor->subjects as $subject)
-                                <span class="bg-gray-300 text-xs px-2 py-1 rounded">{{ $subject->title }}</span>
-                            @endforeach
+                        <p class="text-base leading-6">Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.</p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <ul role="list" class="flex gap-x-3">
+                                <x-button icon="o-heart" class="btn-circle btn-sm" tooltip-bottom="Save to my list" />
+                                <x-button icon="o-share" class="btn-circle btn-sm" tooltip-bottom="Share" />
+                            </ul>
+                            <x-button label="Message" class="btn-primary" />
                         </div>
                     </div>
-                    <div class="px-4 py-2 flex justify-center gap-2">
-                        <x-button icon="o-envelope" class="btn-circle btn-sm" />
-                        <x-button icon="o-phone" class="btn-circle btn-sm" />
-                    </div>
-                </div>
+                </li>
             @endforeach
         </ul>
     @else
