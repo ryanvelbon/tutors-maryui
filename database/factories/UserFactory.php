@@ -26,7 +26,7 @@ class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             'dob' => fake()->dateTimeBetween('-65 years', '-18 years')->format('Y-m-d'),
             'sex' => fake()->randomElement(['m', 'f']),
-            'bio' => fake()->paragraph(),
+            'bio' => fake()->text(rand(100,1000)),
             'locality_id' => Locality::inRandomOrder()->first(),
         ];
     }

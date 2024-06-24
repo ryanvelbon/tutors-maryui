@@ -71,7 +71,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-base leading-6">Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.</p>
+                            <div x-data="{ isExpanded: false, limit: 160, text: '{{ $tutor->bio }}' }">
+                                <p x-text="isExpanded ? text : text.substring(0, limit) + (text.length > limit ? '...' : '')" class="text-base leading-6"></p>
+                                <button x-show="text.length > limit" @click="isExpanded = !isExpanded" class="mt-2 underline font-semibold hover:text-primary">
+                                    <span x-text="isExpanded ? 'Read less' : 'Read more'"></span>
+                                </button>
+                            </div>
                             <div class="mt-4 flex items-center justify-between">
                                 <ul role="list" class="flex gap-x-3">
                                     <x-button icon="o-heart" class="btn-circle btn-sm" tooltip-bottom="Save to my list" />
