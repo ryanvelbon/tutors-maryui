@@ -60,13 +60,13 @@ class TutorIndex extends Component
             })
             ->paginate(12);
 
-        $subjectOptions = Subject::all();
+        $subjectOptions = Subject::orderBy('title', 'ASC')->get();
         $subjectOptions->prepend(['title' => 'All Subjects', 'id' => null]);
 
         $levelOptions = $this->subjectId ? Subject::find($this->subjectId)->levels : collect([]);
         $levelOptions->prepend(['title' => 'Any Level', 'id' => null]);
 
-        $localityOptions = Locality::all();
+        $localityOptions = Locality::orderBy('name', 'ASC')->get();
         $localityOptions->prepend(['name' => 'Anywhere', 'id' => null]);
 
         $sexOptions = UserSex::cases();
