@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class ConfirmTest extends TestCase
@@ -22,7 +23,7 @@ class ConfirmTest extends TestCase
         })->middleware(['web', 'password.confirm']);
     }
 
-    /** @test */
+    #[Test]
     public function a_user_must_confirm_their_password_before_visiting_a_protected_page()
     {
         $user = User::factory()->create();
@@ -36,7 +37,7 @@ class ConfirmTest extends TestCase
             ->assertSeeLivewire('auth.passwords.confirm');
     }
 
-    /** @test */
+    #[Test]
     public function a_user_must_enter_a_password_to_confirm_it()
     {
         Livewire::test('auth.passwords.confirm')
@@ -44,7 +45,7 @@ class ConfirmTest extends TestCase
             ->assertHasErrors(['password' => 'required']);
     }
 
-    /** @test */
+    #[Test]
     public function a_user_must_enter_their_own_password_to_confirm_it()
     {
         $user = User::factory()->create([
@@ -57,7 +58,7 @@ class ConfirmTest extends TestCase
             ->assertHasErrors(['password' => 'current_password']);
     }
 
-    /** @test */
+    #[Test]
     public function a_user_who_confirms_their_password_will_get_redirected()
     {
         $user = User::factory()->create([

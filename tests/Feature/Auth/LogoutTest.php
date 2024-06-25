@@ -5,13 +5,14 @@ namespace Tests\Feature\Auth;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class LogoutTest extends TestCase
 {
     use RefreshDatabase;
 
-    /** @test */
+    #[Test]
     public function an_authenticated_user_can_log_out()
     {
         $user = User::factory()->create();
@@ -23,7 +24,7 @@ class LogoutTest extends TestCase
         $this->assertFalse(Auth::check());
     }
 
-    /** @test */
+    #[Test]
     public function an_unauthenticated_user_can_not_log_out()
     {
         $this->post(route('logout'))
