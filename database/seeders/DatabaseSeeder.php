@@ -12,6 +12,7 @@ use App\Models\Subject;
 use App\Models\Tutor;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,7 +33,7 @@ class DatabaseSeeder extends Seeder
 
         $subjectIds = Subject::pluck('id');
 
-        $n = 50; // number of tutors
+        $n = 1000; // number of tutors
 
 
 
@@ -42,10 +43,32 @@ class DatabaseSeeder extends Seeder
 
         $tutors = Tutor::factory($n)->create();
 
-        // assign random subjects to each tutor
-        $tutors->map(function (Tutor $tutor) use ($subjectIds) {
-            $tutor->user->subjects()->sync($subjectIds->random(rand(1,2)));
-        });
+        /*
+         * Populates junction table `tutor_subject_level` so that each
+         * tutor teaches a few subjects (at specific levels)
+         */
+
+        $data = [];
+
+        foreach ($tutors as $tutor) {
+
+            $subjects = Subject::inRandomOrder()->take(2)->get();
+
+            foreach ($subjects as $subject) {
+
+                $levels = $subject->levels->shuffle()->take(rand(1,3));
+
+                foreach ($levels as $level) {
+                    $data[] = [
+                        'tutor_id' => $tutor->id,
+                        'subject_id' => $subject->id,
+                        'level_id' => $level->id,
+                    ];
+                }
+            }
+        }
+
+        DB::table('tutor_subject_level')->insert($data);
 
 
 

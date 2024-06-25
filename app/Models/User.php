@@ -57,11 +57,6 @@ class User extends Authenticatable
         return $this->HasManyThrough(Course::class, Tutor::class);
     }
 
-    public function subjects(): BelongsToMany
-    {
-        return $this->belongsToMany(Subject::class);
-    }
-
     public function locality(): BelongsTo
     {
         return $this->belongsTo(Locality::class);
