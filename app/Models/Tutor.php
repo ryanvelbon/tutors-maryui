@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
 class Tutor extends Model
 {
@@ -50,5 +51,12 @@ class Tutor extends Model
             ->pluck('tutor_id');
 
         return $query->whereIn('id', $tutorIds);
+    }
+
+    public function addSubject(Subject $subject, array $levelIds): void
+    {
+        foreach ($levelIds as $id) {
+            $this->subjects()->attach($subject, ['level_id' => $id]);
+        }
     }
 }

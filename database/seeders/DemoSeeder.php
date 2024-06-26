@@ -32,27 +32,17 @@ class DemoSeeder extends Seeder
          * tutor teaches a few subjects (at specific levels)
          */
 
-        $data = [];
-
         foreach ($tutors as $tutor) {
 
             $subjects = Subject::inRandomOrder()->take(2)->get();
 
             foreach ($subjects as $subject) {
 
-                $levels = $subject->levels->shuffle()->take(rand(1,3));
+                $levelIds = $subject->levels->shuffle()->take(rand(1,3))->pluck('id')->toArray();
 
-                foreach ($levels as $level) {
-                    $data[] = [
-                        'tutor_id' => $tutor->id,
-                        'subject_id' => $subject->id,
-                        'level_id' => $level->id,
-                    ];
-                }
+                $tutor->addSubject($subject, $levelIds);
             }
         }
-
-        DB::table('tutor_subject_level')->insert($data);
 
 
 
