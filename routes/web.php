@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\TutorController;
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Livewire\CourseIndex;
@@ -30,6 +31,7 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/courses', CourseIndex::class)->name('courses.index');
 
 Route::get('/tutors', TutorIndex::class)->name('tutors.index');
+Route::get('/tutors/{subject:slug}/{level:slug}', [TutorController::class, 'indexBySubjectAndLevel'])->name('tutors.index.by-subject-and-level');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
