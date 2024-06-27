@@ -13,7 +13,6 @@ use App\Models\Tutor;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DemoSeeder extends Seeder
 {

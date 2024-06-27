@@ -13,7 +13,7 @@
 
     <main class="container py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($tutors as $tutor)
-            <a href="#">
+            <a href="{{ route('tutors.show', $tutor->user) }}">
                 <div class="p-4 bg-gray-300 hover:bg-gray-200">
                     <h3>{{ $tutor->user->title }} {{ $tutor->user->full_name }}</h3>
                     <p>&euro; {{ $tutor->user->price_per_hour_individual }} / hour</p>

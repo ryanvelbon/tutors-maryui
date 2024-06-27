@@ -31,6 +31,7 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/courses', CourseIndex::class)->name('courses.index');
 
 Route::get('/tutors', TutorIndex::class)->name('tutors.index');
+Route::get('/tutors/{user:username}', [TutorController::class, 'show'])->name('tutors.show');
 Route::get('/tutors/{subject:slug}/{level:slug}', [TutorController::class, 'indexBySubjectAndLevel'])->name('tutors.index.by-subject-and-level');
 
 Route::middleware('guest')->group(function () {
