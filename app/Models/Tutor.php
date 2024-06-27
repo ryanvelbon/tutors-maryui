@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Reviewable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -14,6 +15,7 @@ use Illuminate\Support\Collection;
 class Tutor extends Model
 {
     use HasFactory;
+    use Reviewable;
 
     protected $fillable = [
         'price_per_hour_individual',
