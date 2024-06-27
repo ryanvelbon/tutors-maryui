@@ -13,19 +13,17 @@ class Subject extends Model
         'slug',
     ];
 
+    protected $hidden = ['pivot'];
+
     public function levels(): BelongsToMany
     {
         return $this->belongsToMany(Level::class);
     }
 
-    public function users(): BelongsToMany
+    public function tutors(): BelongsToMany
     {
-        return $this->belongsToMany(User::class);
-    }
-
-    public function tutors()
-    {
-        return $this->users()->tutors();
+        return $this->belongsToMany(Tutor::class, 'tutor_subject_level')
+                    ->distinct();
     }
 
     public function courses(): HasMany
