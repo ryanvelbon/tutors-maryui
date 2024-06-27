@@ -24,8 +24,8 @@ class LessonFactory extends Factory
             'capacity' => rand(1,5) > 4 ? 1 : fake()->randomElement([1, 2, 3, 4, 5, 10]),
             'starts_at' => $startsAt,
             'ends_at' => $endsAt,
-            'subject_id' => Subject::inRandomOrder()->first() ?? Subject::factory()->create(),
-            'tutor_id' => Tutor::inRandomOrder()->first() ?? Tutor::factory()->create(),
+            'subject_id' => Subject::inRandomOrder()->first() ?? Subject::factory(),
+            'tutor_id' => Tutor::inRandomOrder()->first() ?? Tutor::factory(),
         ];
     }
 

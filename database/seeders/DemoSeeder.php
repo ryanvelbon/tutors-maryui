@@ -18,7 +18,7 @@ class DemoSeeder extends Seeder
 {
     public function run(): void
     {
-        $n = 1000; // number of tutors
+        $n = 10; // number of tutors
 
         /*                    T U T O R S
          =========================================================*/
