@@ -11,6 +11,8 @@ return new class extends Migration
         Schema::create('tutors', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->unique()->constrained()->onDelete('CASCADE');
+            $table->unsignedInteger('price_per_hour_individual')->nullable();
+            $table->unsignedInteger('price_per_hour_group')->nullable();
             $table->timestamps();
         });
 

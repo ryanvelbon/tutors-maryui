@@ -15,6 +15,11 @@ class Tutor extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'price_per_hour_individual',
+        'price_per_hour_group',
+    ];
+
     protected $hidden = ['pivot'];
 
     public function user(): BelongsTo

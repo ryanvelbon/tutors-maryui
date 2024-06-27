@@ -17,9 +17,9 @@ class TutorFactory extends Factory
             'user_id' => User::factory()->create([
                 'title' => fake()->randomElement(UserTitle::cases()),
                 'account_type' => AccountType::Tutor,
-                'price_per_hour_individual' => $price * rand(2,5),
-                'price_per_hour_group' => $price,
             ]),
+            'price_per_hour_individual' => $price * rand(2,5),
+            'price_per_hour_group' => $price,
         ];
     }
 }

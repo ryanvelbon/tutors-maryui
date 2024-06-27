@@ -73,7 +73,7 @@
                                         <span class="text-gray-600 text-xs">21 reviews</span>
                                     </div>
                                     <div class="flex flex-col">
-                                        <span class="h-5 text-xl font-bold">&euro;14</span>
+                                        <span class="h-5 text-xl font-bold">&euro;{{ $user->tutorProfile->price_per_hour_individual }}</span>
                                         <span class="text-gray-600 text-xs mt-2">per hour</span>
                                     </div>
                                 </div>
