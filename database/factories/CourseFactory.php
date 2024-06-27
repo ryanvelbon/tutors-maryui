@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Level;
+use App\Models\Subject;
+use App\Models\Tutor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CourseFactory extends Factory
@@ -14,9 +17,9 @@ class CourseFactory extends Factory
         return [
             'title' => substr(ucwords(fake()->text(40)), 0, -1),
             'description' => fake()->paragraph(),
-            'subject_id' => \App\Models\Subject::inRandomOrder()->first(),
-            'level_id'   => \App\Models\Level::inRandomOrder()->first(),
-            'tutor_id'   => \App\Models\Tutor::inRandomOrder()->first(),
+            'subject_id' => Subject::inRandomOrder()->first() ?? Subject::factory()->create(),
+            'level_id'   => Level::inRandomOrder()->first() ?? Level::factory()->create(),
+            'tutor_id'   => Tutor::inRandomOrder()->first() ?? Tutor::factory()->create(),
             'total_hours' => $totalHours,
             'price' => $totalHours * $hourlyRate,
         ];
