@@ -48,17 +48,24 @@
     </aside>
 
     <main class="container pt-32 md:pt-48 pb-8">
-        @if(!$tutors->isEmpty())
+        @if(!$users->isEmpty())
             <ul role="list" class="space-y-12 max-w-4xl">
-                @foreach($tutors as $tutor)
+                @foreach($users as $user)
                     <li class="bg-white rounded-2xl shadow hover:shadow-xl flex flex-col sm:flex-row">
                         <img class="aspect-[16/9] w-full sm:w-52 flex-none rounded-t-2xl sm:rounded-l-2xl sm:rounded-tr-none  object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
                         <div class="card-body">
                             <div class="flex flex-col sm:flex-row justify-between">
                                 <div>
-                                    <h3 class="text-xl font-bold">Leslie Alexander</h3>
-                                    <p class="text-sm leading-7 text-gray-600">Maths &bull; Physics</p>
-                                    <x-icon name="o-map-pin" label="{{ $tutor->locality->name }}" class="text-sm text-gray-600" />
+                                    <h3 class="text-xl font-bold">{{ $user->title }} {{ $user->full_name }}</h3>
+                                    <p class="text-sm leading-7 text-gray-600">
+                                        @foreach($user->tutorProfile->subjects as $subject)
+                                            {{ $subject->title }}
+                                            @if(!$loop->last)
+                                                &bull;
+                                            @endif
+                                        @endforeach
+                                    </p>
+                                    <x-icon name="o-map-pin" label="{{ $user->locality->name }}" class="text-sm text-gray-600" />
                                 </div>
                                 <div class="flex flex-row gap-6">
                                     <div class="flex flex-col">
@@ -71,7 +78,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div x-data="{ isExpanded: false, limit: 160, text: '{{ $tutor->bio }}' }">
+                            <div x-data="{ isExpanded: false, limit: 160, text: '{{ $user->bio }}' }">
                                 <p x-text="isExpanded ? text : text.substring(0, limit) + (text.length > limit ? '...' : '')" class="text-base leading-6"></p>
                                 <button x-show="text.length > limit" @click="isExpanded = !isExpanded" class="mt-2 underline font-semibold hover:text-primary">
                                     <span x-text="isExpanded ? 'Read less' : 'Read more'"></span>
@@ -97,9 +104,9 @@
             </div>
         @endif
 
-        @if(!$tutors->isEmpty())
+        @if(!$users->isEmpty())
             <div class="my-4">
-                {{ $tutors->links() }}
+                {{ $users->links() }}
             </div>
         @endif
     </main>

@@ -44,11 +44,11 @@ class TutorIndex extends Component
 
     public function render()
     {
-        $tutors = User::query()
+        $users = User::query()
             ->tutors()
-            ->with('subjects', 'locality')
+            ->with('tutorProfile.subjects', 'locality')
             ->when($this->subjectId, function ($query) {
-                $query->whereHas('subjects', function ($query) {
+                $query->whereHas('tutorProfile.subjects', function ($query) {
                     $query->where('subject_id', $this->subjectId);
                 });
             })
@@ -73,7 +73,7 @@ class TutorIndex extends Component
         $sexOptions[] = ['name' => 'Any', 'value' => null];
 
         return view('livewire.tutor-index', [
-            'tutors' => $tutors,
+            'users' => $users,
             'subjectOptions' => $subjectOptions,
             'levelOptions' => $levelOptions,
             'localityOptions' => $localityOptions,
