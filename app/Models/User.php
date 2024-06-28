@@ -30,6 +30,7 @@ class User extends Authenticatable
         'dob',
         'sex',
         'bio',
+        'avatar',
     ];
 
     protected $hidden = [
@@ -97,5 +98,12 @@ class User extends Authenticatable
     public function getTutorIdAttribute()
     {
         return data_get($this->tutorProfile, 'id');
+    }
+
+    public function getAvatarUrlAttribute()
+    {
+        return $this->avatar
+            ? asset("storage/img/avatars/{$this->avatar}")
+            : asset("assets/img/user.jpg");
     }
 }
