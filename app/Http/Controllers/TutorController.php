@@ -35,7 +35,11 @@ class TutorController extends Controller
             abort(404);
         }
 
-        $tutor = Tutor::where('user_id', $user->id)->first();
+        $tutor = Tutor::query()
+                    ->withCount('reviews')
+                    ->with('reviews.author')
+                    ->where('user_id', $user->id)
+                    ->first();
 
         return view('pages.tutors.show', [
             'tutor' => $tutor,

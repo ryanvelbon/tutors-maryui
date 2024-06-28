@@ -1,3 +1,5 @@
+@section('title', "Search Tutors | Private Lessons in Malta & Gozo" )
+
 <div>
     <x-drawer wire:model="showFilters" class="w-11/12 lg:w-1/3">
         <div class="flex justify-end">
@@ -56,7 +58,11 @@
                         <div class="card-body">
                             <div class="flex flex-col sm:flex-row justify-between">
                                 <div>
-                                    <h3 class="text-xl font-bold">{{ $user->title }} {{ $user->full_name }}</h3>
+                                    <h3 class="text-xl font-bold hover:underline">
+                                        <a href="{{ route('tutors.show', $user) }}">
+                                            {{ $user->title }} {{ $user->full_name }}
+                                        </a>
+                                    </h3>
                                     <p class="text-sm leading-7 text-gray-600">
                                         @foreach($user->tutorProfile->subjects as $subject)
                                             {{ $subject->title }}
