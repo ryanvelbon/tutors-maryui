@@ -41,7 +41,8 @@
     <section id="profile-subnav" class="border-0 border-b">
         <div class="container md:flex md:justify-between">
             <nav class="text-gray-500 space-x-4 my-auto hidden md:block">
-                <a href="#profile-bio" class="hover:text-gray-800">Profile</a>
+                <a href="#profile-bio" class="hover:text-gray-800">About</a>
+                <a href="#profile-subjects" class="hover:text-gray-800">Subjects</a>
                 <a href="#profile-reviews" class="hover:text-gray-800">Reviews ({{ $tutor->reviews_count }})</a>
                 <a href="#profile-faq" class="hover:text-gray-800">FAQ</a>
             </nav>
@@ -57,6 +58,31 @@
                 <div id="profile-bio" class="pb-16 border-0 border-b">
                     <h3 class="mb-6 text-3xl font-bold">About me</h3>
                     <div>{{ $tutor->user->bio }}</div>
+                </div>
+                <div id="profile-subjects" class="py-16 border-0 border-b">
+                    <h3 class="mb-6 text-3xl font-bold">Subjects</h3>
+                    <div class="overflow-x-auto">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <th>Level</th>
+                                    <th class="hidden md:inline-block"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach( $tutor->subjectLevels as $item)
+                                    <tr>
+                                        <td>{{ $item->subject_title }}</td>
+                                        <td>{{ $item->level_title }}</td>
+                                        <td class="hidden md:inline-block">
+                                            <x-button label="Click" class="btn-xs btn-outline" />
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div id="profile-reviews" class="py-16 border-0 border-b">
                     <h3 class="mb-6 text-3xl font-bold">What my students say</h3>

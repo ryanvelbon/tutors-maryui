@@ -66,4 +66,21 @@ class Tutor extends Model
             $this->subjects()->attach($subject, ['level_id' => $id]);
         }
     }
+
+    public function getSubjectLevelsAttribute()
+    {
+        $records = DB::table('tutor_subject_level')
+                    ->join('subjects', 'tutor_subject_level.subject_id', '=', 'subjects.id')
+                    ->join('levels', 'tutor_subject_level.level_id', '=', 'levels.id')
+                    ->where('tutor_id', $this->id)
+                    ->select(
+                        'subjects.id as subject_id',
+                        'subjects.title as subject_title',
+                        'levels.id as level_id',
+                        'levels.title as level_title',
+                    )
+                    ->get();
+
+        return $records;
+    }
 }
