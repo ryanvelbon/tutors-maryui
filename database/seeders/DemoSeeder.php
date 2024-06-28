@@ -20,11 +20,27 @@ class DemoSeeder extends Seeder
     {
         $n = 10; // number of tutors
 
+
+
+        /*                   S T U D E N T S
+        =========================================================*/
+
+
+        Student::factory(1000)->create();
+
+
+
         /*                    T U T O R S
          =========================================================*/
 
 
-        $tutors = Tutor::factory($n)->create();
+        for ($i=0; $i < $n ; $i++) {
+            Tutor::factory()
+                ->hasReviews(rand(0,10))
+                ->create();
+        }
+
+        $tutors = Tutor::all();
 
         /*
          * Populates junction table `tutor_subject_level` so that each
@@ -112,12 +128,5 @@ class DemoSeeder extends Seeder
 
         Lesson::past()->update(['status' => LessonStatus::Completed]);
         Lesson::past()->inRandomOrder()->take(50)->update(['status' => LessonStatus::Cancelled]);
-
-
-        /*                   S T U D E N T S
-         =========================================================*/
-
-
-        $students = Student::factory($n*10)->create();
     }
 }
