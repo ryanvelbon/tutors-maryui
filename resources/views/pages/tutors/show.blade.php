@@ -13,7 +13,7 @@
 
             <div class="container grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="my-auto space-y-2">
-                    <p class="text-gray-300 text-xl md:text-2xl lg:text-3xl xl:text-4xl italic">Lorem ipsum dolor sit amet tempor ut labore dolore magna aliqua enim.</p>
+                    <p class="text-gray-300 text-xl md:text-2xl lg:text-3xl xl:text-4xl italic">{{ $tutor->user->tagline }}</p>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white">{{ $tutor->user->full_name }}</h1>
                     <div class="text-gray-500 text-lg">
                         @foreach($tutor->subjects as $subject)

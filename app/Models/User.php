@@ -29,6 +29,7 @@ class User extends Authenticatable
         'last_name',
         'dob',
         'sex',
+        'tagline',
         'bio',
         'avatar',
     ];

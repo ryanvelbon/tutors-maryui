@@ -23,6 +23,7 @@ class UserFactory extends Factory
             'last_name' => fake()->lastName(),
             'dob' => fake()->dateTimeBetween('-65 years', '-18 years')->format('Y-m-d'),
             'sex' => fake()->randomElement(['m', 'f']),
+            'tagline' => fake()->text(70),
             'bio' => fake()->text(rand(100,1000)),
             'avatar' => 'user' . rand(1,100) . '.png',
             'locality_id' => Locality::inRandomOrder()->first(),

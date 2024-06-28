@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('full_name')->virtualAs('concat(first_name, \' \', last_name)');
             $table->date('dob')->nullable();
             $table->char('sex', 1)->nullable();
+            $table->string('tagline', 70)->nullable();
             $table->text('bio')->nullable();
             $table->text('avatar')->nullable();
             $table->foreignId('locality_id')->nullable()->constrained();
