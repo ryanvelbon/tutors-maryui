@@ -114,6 +114,20 @@
                 </div>
                 <div id="profile-faq" class="py-16 border-0 border-b">
                     <h3 class="mb-6 text-3xl font-bold">FAQ</h3>
+                    <div class="space-y-2">
+                        @for($i=0; $i<5; $i++)
+                            <div x-data="{ open: false }" class="border-b">
+                                <div @click="open = !open" class="cursor-pointer px-4 py-2 flex justify-between">
+                                    <h4 class="text-xl font-bold">Lorem ipsum dolor sit?</h4>
+                                    <x-icon x-show="!open" name="o-chevron-down" />
+                                    <x-icon x-show="open" name="o-chevron-up" />
+                                </div>
+                                <div x-show="open" x-transition class="p-4">
+                                    Amet consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </div>
+                            </div>
+                        @endfor
+                    </div>
                 </div>
             </main>
             <aside class="space-y-6 mb-12">
